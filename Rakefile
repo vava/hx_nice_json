@@ -1,4 +1,7 @@
 require 'rake/packagetask'
+require 'rake/clean'
+
+CLOBBER.include('tests/test_packaged.n', 'tests/test.n')
 
 test_files = FileList['nice_json/test/**/*.hx']
 haxe_files = FileList['nice_json/**/*.hx']
@@ -30,6 +33,7 @@ file 'tests/test_packaged.n' => FileList[haxe_files, 'tests/test_packaged.hxml']
 	cd '..'
 end
 
+desc "Tests package"
 task :test_package => ['tests/test_packaged.n', :install_package] do
 	sh 'neko tests/test_packaged.n'
 end
@@ -43,4 +47,9 @@ end
 desc "Run hxUnit tests"
 task :test => 'tests/test.n' do
 	sh 'neko tests/test.n'
+end
+
+desc "Upload package"
+task :upload => :package do
+	sh ''
 end
