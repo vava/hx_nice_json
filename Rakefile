@@ -51,5 +51,5 @@ end
 
 desc "Upload package"
 task :upload => :package do
-	sh ''
+	sh 'haxelib submit pkg/hx_nice_json.zip'
 end
