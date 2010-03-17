@@ -2,6 +2,6 @@
     <user name="vava"/>
     <tag v="json"/>
     <tag v="cross"/>
-    <description>Nice JSON render</description>
+    <description>Nice JSON render. It converts everything (Hashes, Arrays, plain objects, you name it) to well formatted JSON. Useful for debugging.</description>
     <version name="1.0">Initial release, everything is working correctly</version>
 </project>

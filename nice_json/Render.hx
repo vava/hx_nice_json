@@ -13,6 +13,18 @@ private enum RenderType {
    The [Render] class provide nice formatted JSON rendering from every possible storage container haXe have, including your own classes.
    There is two ways of using it. In simple cases, you just call [Render.as_json(your_data_object)].
    You can also instantiate it and pass additional parameters, [new Render({sort_keys: true}).json(your_data_object)].
+
+   It renders:
+
+   [Hash], [IntHash] as [{key : value}]
+
+   [Array], [List] and everything that have [iterator()] as [[value1, value2]]
+
+   Class with [toString()] method as string
+
+   Plain objects as [{key, value}]
+
+   Literals as themselves
 **/
 class Render {
 	/**

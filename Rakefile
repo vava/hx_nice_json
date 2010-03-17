@@ -18,6 +18,10 @@ file "haxedoc.xml" => haxe_files do
 	sh 'haxe -xml haxedoc.xml nice_json.Render'
 end
 
+task :docs => "haxedoc.xml" do
+	sh 'haxedoc haxedoc.xml'
+end
+
 rule '.hx' do
 	#nothing to do
 end
