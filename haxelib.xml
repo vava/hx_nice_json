@@ -1,6 +1,7 @@
-<project name="hx_nice_json" url="http://myproject.org" license="MIT">
+<project name="hx_nice_json" url="http://github.com/vava/hx_nice_json" license="BSD">
     <user name="vava"/>
     <tag v="json"/>
+    <tag v="cross"/>
     <description>Nice JSON render</description>
     <version name="1.0">Initial release, everything is working correctly</version>
 </project>
