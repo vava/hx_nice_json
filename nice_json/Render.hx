@@ -9,7 +9,21 @@ private enum RenderType {
 	Linear(storage: Iterator<Dynamic>);
 }
 
+/**
+   The [Render] class provide nice formatted JSON rendering from every possible storage container haXe have, including your own classes.
+   There is two ways of using it. In simple cases, you just call [Render.as_json(your_data_object)].
+   You can also instantiate it and pass additional parameters, [new Render({sort_keys: true}).json(your_data_object)].
+**/
 class Render {
+	/**
+	   Constructor of [Render] object. Accept the following (optional) parameters:
+
+	   [indent: String] - initial level of indentation. Can be any string, it will be copied in front of every line of output. Default is "".
+
+	   [sort_keys: Bool] - if set, keys for key-value storages (such as Hash and object) will be sorted. It makes output more consistent and might be useful if you're trying to [diff] it.
+
+	   [key_value_storages: Array<{name: String, storage_to_iterator: Dynamic -> Iterator<{key: String, value: Dynamic}>] - allows you to register your own key-value storages. [name] should be [Type.className(Type.getClass(object))], [storage_to_iterator] should be function, that given the object of your storage returns iterator to {key, value} pairs.
+	 **/
 	public function new(?params: Dynamic) {
 		if (params == null) {
 			params = {};
@@ -37,10 +51,16 @@ class Render {
 		key_value_storages.push({name: "IntHash", storage_to_iterator: AssortedUtils.int_hash_to_key_value_iterable});
 	}
 
+	/**
+	   Given object, returns well formatted JSON.
+	 **/
 	public static function as_json(s: Dynamic): String {
 		return new Render().json(s);
 	}
 
+	/**
+	   Given object, returns well formatted JSON.
+	 **/
 	public function json(s: Dynamic): String {
 		return switch(chooseRender(s)) {
 			case Simple: render_simple(s);

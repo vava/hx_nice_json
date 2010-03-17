@@ -368,55 +368,88 @@
 </haxe_doc>
 	</class>
 	<class path="nice_json.internal_utils.AssortedUtils" params="" file="nice_json/internal_utils/AssortedUtils.hx">
-		<hash_to_key_value_iterable public="1" set="method" line="4" static="1"><f a="s">
-	<c path="Hash"><d/></c>
-	<a>
-		<next><f a=""><a>
+		<hash_to_key_value_iterable public="1" set="method" line="10" static="1">
+			<f a="s">
+				<c path="Hash"><d/></c>
+				<a>
+					<next><f a=""><a>
 	<value><t path="Null"><d/></t></value>
 	<key><c path="String"/></key>
 </a></f></next>
-		<hasNext><f a=""><e path="Bool"/></f></hasNext>
-	</a>
-</f></hash_to_key_value_iterable>
-		<int_hash_to_key_value_iterable public="1" set="method" line="12" static="1"><f a="s">
-	<c path="IntHash"><d/></c>
-	<a>
-		<next><f a=""><a>
+					<hasNext><f a=""><e path="Bool"/></f></hasNext>
+				</a>
+			</f>
+			<haxe_doc>
+	   Given [Hash], returns iterator to {key, value} pairs. Used in [Render] to iterate through [Hash].
+	 </haxe_doc>
+		</hash_to_key_value_iterable>
+		<int_hash_to_key_value_iterable public="1" set="method" line="21" static="1">
+			<f a="s">
+				<c path="IntHash"><d/></c>
+				<a>
+					<next><f a=""><a>
 	<value><t path="Null"><d/></t></value>
 	<key><c path="String"/></key>
 </a></f></next>
-		<hasNext><f a=""><e path="Bool"/></f></hasNext>
-	</a>
-</f></int_hash_to_key_value_iterable>
-		<object_to_key_value_iterable public="1" set="method" line="20" static="1"><f a="s">
-	<d/>
-	<a>
-		<next><f a=""><a>
+					<hasNext><f a=""><e path="Bool"/></f></hasNext>
+				</a>
+			</f>
+			<haxe_doc>
+	   Given [IntHash], returns iterator to {key, value} pairs. Used in [Render] to iterate through [IntHash].
+	 </haxe_doc>
+		</int_hash_to_key_value_iterable>
+		<object_to_key_value_iterable public="1" set="method" line="32" static="1">
+			<f a="s">
+				<d/>
+				<a>
+					<next><f a=""><a>
 	<value><d/></value>
 	<key><t path="Null"><c path="String"/></t></key>
 </a></f></next>
-		<hasNext><f a=""><e path="Bool"/></f></hasNext>
-	</a>
-</f></object_to_key_value_iterable>
-		<array_from_iterator public="1" params="T" set="method" line="28" static="1"><f a="it">
-	<t path="Iterator"><c path="array_from_iterator.T"/></t>
-	<c path="Array"><c path="array_from_iterator.T"/></c>
-</f></array_from_iterator>
-		<sort_by_keys public="1" set="method" line="32" static="1"><f a="kv">
-	<t path="Iterator"><a>
+					<hasNext><f a=""><e path="Bool"/></f></hasNext>
+				</a>
+			</f>
+			<haxe_doc>
+	   Given object, returns iterator to {key, value} pairs. Used in [Render] to iterate through simple objects.
+	 </haxe_doc>
+		</object_to_key_value_iterable>
+		<array_from_iterator public="1" params="T" set="method" line="43" static="1">
+			<f a="it">
+				<t path="Iterator"><c path="array_from_iterator.T"/></t>
+				<c path="Array"><c path="array_from_iterator.T"/></c>
+			</f>
+			<haxe_doc>
+	   Return [Array] from [Iterator]
+	 </haxe_doc>
+		</array_from_iterator>
+		<sort_by_keys public="1" set="method" line="50" static="1">
+			<f a="kv">
+				<t path="Iterator"><a>
 	<value><d/></value>
 	<key><c path="String"/></key>
 </a></t>
-	<c path="Array"><a>
+				<c path="Array"><a>
 	<value><d/></value>
 	<key><c path="String"/></key>
 </a></c>
-</f></sort_by_keys>
-		<compare_string public="1" set="method" line="40" static="1"><f a="a:b">
-	<c path="String"/>
-	<c path="String"/>
-	<c path="Int"/>
-</f></compare_string>
+			</f>
+			<haxe_doc>
+	   Given iterator to {key, value}, returns array with those {key, value} pairs, sorted by key.
+	 </haxe_doc>
+		</sort_by_keys>
+		<compare_string public="1" set="method" line="61" static="1">
+			<f a="a:b">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[
+	   Returns -1 if a < b, 0 if a = b, 1 if a > b. Used in [Array.sort].
+	 ]]></haxe_doc>
+		</compare_string>
+		<haxe_doc>
+   Few utilities to make my life simpler.
+ </haxe_doc>
 	</class>
 	<class path="Std" params="" file="C:\Program Files\Motion-Twin\haxe/std/Std.hx">
 		<is public="1" set="method" line="34" static="1">
@@ -1158,18 +1191,28 @@
 </a></t></KeyValue>
 	</enum>
 	<class path="nice_json.Render" params="" file="nice_json/Render.hx">
-		<as_json public="1" set="method" line="40" static="1"><f a="s">
-	<d/>
-	<c path="String"/>
-</f></as_json>
-		<escape set="method" line="144" static="1"><f a="s">
+		<as_json public="1" set="method" line="57" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+	   Given object, returns well formatted JSON.
+	 </haxe_doc>
+		</as_json>
+		<escape set="method" line="164" static="1"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></escape>
-		<json public="1" set="method" line="44"><f a="s">
-	<d/>
-	<c path="String"/>
-</f></json>
+		<json public="1" set="method" line="64">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+	   Given object, returns well formatted JSON.
+	 </haxe_doc>
+		</json>
 		<indent><c path="String"/></indent>
 		<sort_keys><e path="Bool"/></sort_keys>
 		<key_value_storages><c path="Array"><a>
@@ -1182,46 +1225,62 @@
 </f></storage_to_iterator>
 	<name><c path="String"/></name>
 </a></c></key_value_storages>
-		<indent_out get="inline" set="null" line="57"><f a=""><e path="Void"/></f></indent_out>
-		<indent_in get="inline" set="null" line="61"><f a=""><e path="Void"/></f></indent_in>
-		<is_key_value_storage set="method" line="65"><f a="s">
+		<indent_out get="inline" set="null" line="77"><f a=""><e path="Void"/></f></indent_out>
+		<indent_in get="inline" set="null" line="81"><f a=""><e path="Void"/></f></indent_in>
+		<is_key_value_storage set="method" line="85"><f a="s">
 	<d/>
 	<e path="Bool"/>
 </f></is_key_value_storage>
-		<get_key_value_storage_iterator set="method" line="72"><f a="s">
+		<get_key_value_storage_iterator set="method" line="92"><f a="s">
 	<d/>
 	<t path="Iterator"><a>
 	<value><d/></value>
 	<key><c path="String"/></key>
 </a></t>
 </f></get_key_value_storage_iterator>
-		<has_complicated_rendering get="inline" set="null" line="82"><f a="s">
+		<has_complicated_rendering get="inline" set="null" line="102"><f a="s">
 	<d/>
 	<e path="Bool"/>
 </f></has_complicated_rendering>
-		<render_key_value_storage set="method" line="86"><f a="storage">
+		<render_key_value_storage set="method" line="106"><f a="storage">
 	<t path="Iterator"><a>
 	<value><d/></value>
 	<key><c path="String"/></key>
 </a></t>
 	<c path="String"/>
 </f></render_key_value_storage>
-		<render_linear_storage set="method" line="116"><f a="storage">
+		<render_linear_storage set="method" line="136"><f a="storage">
 	<t path="Iterator"><d/></t>
 	<c path="String"/>
 </f></render_linear_storage>
-		<render_simple set="method" line="134"><f a="s">
+		<render_simple set="method" line="154"><f a="s">
 	<d/>
 	<c path="String"/>
 </f></render_simple>
-		<chooseRender set="method" line="151"><f a="s">
+		<chooseRender set="method" line="171"><f a="s">
 	<d/>
 	<e path="nice_json._Render.RenderType"/>
 </f></chooseRender>
-		<new public="1" set="method" line="13"><f a="?params">
-	<d/>
-	<e path="Void"/>
-</f></new>
+		<new public="1" set="method" line="27">
+			<f a="?params">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[
+	   Constructor of [Render] object. Accept the following (optional) parameters:
+
+	   [indent: String] - initial level of indentation. Can be any string, it will be copied in front of every line of output. Default is "".
+
+	   [sort_keys: Bool] - if set, keys for key-value storages (such as Hash and object) will be sorted. It makes output more consistent and might be useful if you're trying to [diff] it.
+
+	   [key_value_storages: Array<{name: String, storage_to_iterator: Dynamic -> Iterator<{key: String, value: Dynamic}>] - allows you to register your own key-value storages. [name] should be [Type.className(Type.getClass(object))], [storage_to_iterator] should be function, that given the object of your storage returns iterator to {key, value} pairs.
+	 ]]></haxe_doc>
+		</new>
+		<haxe_doc>
+   The [Render] class provide nice formatted JSON rendering from every possible storage container haXe have, including your own classes.
+   There is two ways of using it. In simple cases, you just call [Render.as_json(your_data_object)].
+   You can also instantiate it and pass additional parameters, [new Render({sort_keys: true}).json(your_data_object)].
+</haxe_doc>
 	</class>
 	<class path="Reflect" params="" file="C:\Program Files\Motion-Twin\haxe/std/Reflect.hx">
 		<hasField public="1" set="method" line="35" static="1">
@@ -1584,26 +1643,55 @@
 </haxe_doc>
 	</class>
 	<class path="nice_json.internal_utils.TypeUtils" params="" file="nice_json/internal_utils/TypeUtils.hx">
-		<class_name public="1" get="inline" set="null" line="4" static="1"><f a="s">
-	<d/>
-	<c path="String"/>
-</f></class_name>
-		<has_iterator public="1" get="inline" set="null" line="8" static="1"><f a="s">
-	<d/>
-	<e path="Bool"/>
-</f></has_iterator>
-		<has_to_string public="1" get="inline" set="null" line="12" static="1"><f a="s">
-	<d/>
-	<e path="Bool"/>
-</f></has_to_string>
-		<has_field public="1" get="inline" set="null" line="16" static="1"><f a="s:field">
-	<d/>
-	<c path="String"/>
-	<e path="Bool"/>
-</f></has_field>
-		<is_object public="1" get="inline" set="null" line="21" static="1"><f a="s">
-	<d/>
-	<e path="Bool"/>
-</f></is_object>
+		<class_name public="1" get="inline" set="null" line="11" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+	   Returns class name of an object.
+	   @returns class name of an object.
+	 </haxe_doc>
+		</class_name>
+		<has_iterator public="1" get="inline" set="null" line="18" static="1">
+			<f a="s">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+	   Checks if object has [iterator] field
+	 </haxe_doc>
+		</has_iterator>
+		<has_to_string public="1" get="inline" set="null" line="25" static="1">
+			<f a="s">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+	   Checks if object has [toString] field
+	 </haxe_doc>
+		</has_to_string>
+		<has_field public="1" get="inline" set="null" line="32" static="1">
+			<f a="s:field">
+				<d/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+	   Checks if object has given field
+	 </haxe_doc>
+		</has_field>
+		<is_object public="1" get="inline" set="null" line="40" static="1">
+			<f a="s">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+	   Checks if it is an object or primitive
+	 </haxe_doc>
+		</is_object>
+		<haxe_doc>
+   Few utilities to operate on types
+ </haxe_doc>
 	</class>
 </haxe>
