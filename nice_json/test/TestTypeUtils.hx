@@ -1,4 +1,4 @@
-package nice_json.test;
+//This class intentionally left without package, so I can test packaged lib and lib under development independently
 
 import nice_json.internal_utils.TypeUtils;
 
@@ -25,9 +25,9 @@ class TestTypeUtils extends haxe.unit.TestCase {
 	}
 
 	public function testClassName() {
-		assertEquals("nice_json.test._TestTypeUtils.TestClass1", TypeUtils.class_name(new TestClass1()));
-		assertEquals("nice_json.test._TestTypeUtils.TestClass2", TypeUtils.class_name(new TestClass2()));
-		assertEquals("nice_json.test._TestTypeUtils.TestClass3", TypeUtils.class_name(new TestClass3()));
+		assertEquals("_TestTypeUtils.TestClass1", TypeUtils.class_name(new TestClass1()));
+		assertEquals("_TestTypeUtils.TestClass2", TypeUtils.class_name(new TestClass2()));
+		assertEquals("_TestTypeUtils.TestClass3", TypeUtils.class_name(new TestClass3()));
 		assertEquals("Hash", TypeUtils.class_name(new Hash()));
 		assertEquals("IntHash", TypeUtils.class_name(new IntHash()));
 		assertEquals("String", TypeUtils.class_name("hello"));

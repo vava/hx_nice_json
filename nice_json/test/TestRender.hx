@@ -1,4 +1,4 @@
-package nice_json.test;
+//This class intentionally left without package, so I can test packaged lib and lib under development independently
 
 import nice_json.Render;
 
@@ -73,7 +73,7 @@ class TestRender extends haxe.unit.TestCase {
 	public function testCustomKeyValueRender() {
 		var render = new Render({
 			  key_value_storages:[
-					{name: "nice_json.test._TestRender.TestClass2",
+					{name: "_TestRender.TestClass2",
 					 storage_to_iterator: function(s) { return s.iterator(); }}
 					 ]
 					});

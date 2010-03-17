@@ -1,0 +1,4 @@
+-neko test_packaged.n
+-main Test
+-cp ../nice_json/test
+-lib hx_nice_json

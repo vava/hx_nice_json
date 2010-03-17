@@ -1,5 +1,6 @@
 require 'rake/packagetask'
 
+test_files = FileList['nice_json/test/**/*.hx']
 haxe_files = FileList['nice_json/**/*.hx']
 package_files = FileList['haxedoc.xml', 'haxelib.xml', haxe_files]
 
@@ -18,14 +19,28 @@ rule '.hx' do
 	#nothing to do
 end
 
-task :test_package => :package do
+desc "Install package locally"
+task :install_package => :package do
 	sh 'haxelib test pkg/hx_nice_json.zip'
 end
 
-file 'test.n' => haxe_files do
-	sh 'haxe test.hxml'
+file 'tests/test_packaged.n' => FileList[haxe_files, 'tests/test_packaged.hxml'] do
+	cd 'tests' #I have to cd otherwise it will include development sources, not from the library
+	sh 'haxe test_packaged.hxml'
+	cd '..'
 end
 
-task :test => 'test.n' do
-	sh 'neko test.n'
+task :test_package => ['tests/test_packaged.n', :install_package] do
+	sh 'neko tests/test_packaged.n'
+end
+
+file 'tests/test.n' => FileList[haxe_files, 'tests/test.hxml'] do
+	cd 'tests' #I have to cd otherwise it will include development sources, not from the library
+	sh 'haxe test.hxml'
+	cd '..'
+end
+
+desc "Run hxUnit tests"
+task :test => 'tests/test.n' do
+	sh 'neko tests/test.n'
 end

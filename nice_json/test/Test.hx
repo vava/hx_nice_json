@@ -1,4 +1,4 @@
-package nice_json.test;
+//This class intentionally left without package, so I can test packaged lib and lib under development independently
 
 class Test {
 	static public function main() {
