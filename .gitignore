@@ -1,4 +1,5 @@
-pkg
-tests/test.n
-tests/test_packaged.n
-content
+/pkg
+/tests/test.n
+/tests/test_packaged.n
+/content
+/index.html
