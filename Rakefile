@@ -1,7 +1,7 @@
 require 'rake/packagetask'
 require 'rake/clean'
 
-CLEAN.include('content')
+CLEAN.include('content', 'index.html')
 CLOBBER.include('tests/test_packaged.n', 'tests/test.n')
 
 test_files = FileList['nice_json/test/**/*.hx']
